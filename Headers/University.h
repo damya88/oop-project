@@ -11,7 +11,7 @@ private:
     int capacity;
 
 public:
-    University(int=0);
+    University(int=3);
 
     void setCapacity(int);
     int getCapacity()const;
@@ -25,6 +25,8 @@ public:
     Room* findRoom(int roomNum, const std::string& dormName);
 
     bool found(Dormitory*)const;
+
+    Student* findStudent(long id, const std::string& dormName);
 
     // FILE HANDLING
     void saveToFiles() const;
