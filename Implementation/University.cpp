@@ -69,6 +69,28 @@ Room* University::findRoom(int roomNum, const std::string& dormName)
     return nullptr;
 }
 
+Student* University::findStudent(long id,
+                                 const std::string& dormName)
+{
+    Dormitory* d = findDormitory(dormName);
+
+    if (!d)
+        return nullptr;
+
+    std::vector<Student*> students =
+        d->getStudents();
+
+    for (size_t i = 0; i < students.size(); i++)
+    {
+        if (students[i]->getId() == id)
+        {
+            return students[i];
+        }
+    }
+
+    return nullptr;
+}
+
 
 void University::loadFromFiles()
 {
